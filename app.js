@@ -1,21 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
   // let game = document.getElementById("game");
-  items = document.getElementById("game").children;
+  let items = document.querySelector("#game").children;
+  let mes = document.querySelector("#message");
   //let options = ["x", "0"];
   //let firstChoice = Math.floor(Math.random() * 2);
-  let play = [];
-  // let click = false;
-  // let newGame = true;
-  let finish = 0;
-
-  // let rows = [];
-  // let cols = [];
-  let dp = [];
-  let ds = [];
-
-  let row0 = [];
-  let row1 = [];
-  let row2 = [];
+  let play = [],
+    finish = 0,
+    dp = [],
+    ds = [],
+    row0 = [],
+    row1 = [],
+    row2 = [],
+    col0 = [],
+    col1 = [],
+    col2 = [];
 
   let paint = (what) => {
     for (let i = 0; i < what.length; i++) {
@@ -29,6 +27,9 @@ document.addEventListener("DOMContentLoaded", function () {
       items[i].setAttribute("disabled", "true");
     }
     switch (type) {
+      case 0:
+        mes.innerText = "Draw!";
+        break;
       case 1:
         paint(dp);
         break;
@@ -43,6 +44,15 @@ document.addEventListener("DOMContentLoaded", function () {
         break;
       case "line2":
         paint(row2);
+        break;
+      case "col0":
+        paint(col0);
+        break;
+      case "col1":
+        paint(col1);
+        break;
+      case "col2":
+        paint(col2);
         break;
     }
   };
@@ -85,6 +95,30 @@ document.addEventListener("DOMContentLoaded", function () {
           row2.push(items[i]);
         }
 
+        if (
+          (items[i].id[0] == 0 && items[i].id[1] == 0) ||
+          (items[i].id[0] == 1 && items[i].id[1] == 0) ||
+          (items[i].id[0] == 2 && items[i].id[1] == 0)
+        ) {
+          col0.push(items[i]);
+        }
+
+        if (
+          (items[i].id[0] == 0 && items[i].id[1] == 1) ||
+          (items[i].id[0] == 1 && items[i].id[1] == 1) ||
+          (items[i].id[0] == 2 && items[i].id[1] == 1)
+        ) {
+          col1.push(items[i]);
+        }
+
+        if (
+          (items[i].id[0] == 0 && items[i].id[1] == 2) ||
+          (items[i].id[0] == 1 && items[i].id[1] == 2) ||
+          (items[i].id[0] == 2 && items[i].id[1] == 2)
+        ) {
+          col2.push(items[i]);
+        }
+
         if (items[i].id[0] == 0 && items[i].id[1] == 2) {
           ds.push(items[i]);
         }
@@ -98,7 +132,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if (items[i].id[0] === items[i].id[1]) {
           dp.push(items[i]);
         }
-        console.log(dp);
         if (dp.length === 3) {
           if (
             dp[0].innerText === dp[1].innerText &&
@@ -141,13 +174,35 @@ document.addEventListener("DOMContentLoaded", function () {
             GameOver("line2");
           }
         }
+        if (col0.length === 3) {
+          if (
+            col0[0].innerText === col0[1].innerText &&
+            col0[1].innerText == col0[2].innerText
+          ) {
+            GameOver("col0");
+          }
+        }
+
+        if (col1.length === 3) {
+          if (
+            col1[0].innerText === col1[1].innerText &&
+            col1[1].innerText == col1[2].innerText
+          ) {
+            GameOver("col1");
+          }
+        }
+        if (col2.length === 3) {
+          if (
+            col2[0].innerText === col2[1].innerText &&
+            col2[1].innerText == col2[2].innerText
+          ) {
+            GameOver("col2");
+          }
+        }
         finish++;
       }
       if (finish === 9) {
-        console.log("finish game");
-        for (let i = 0; i < items.length; i++) {
-          items[i].setAttribute("disabled", "true");
-        }
+        GameOver(0);
       }
     });
   }
