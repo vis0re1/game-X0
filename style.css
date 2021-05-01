@@ -54,6 +54,6 @@ html {
 }
 
 button {
-  /* outline: none; */
+  outline: none;
   border: none;
 }
