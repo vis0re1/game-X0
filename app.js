@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // let game = document.getElementById("game");
   let items = document.querySelector("#game").children;
   let mes = document.querySelector("#message");
+  let reset = document.querySelector("#reset");
   //let options = ["x", "0"];
   //let firstChoice = Math.floor(Math.random() * 2);
   let play = [],
@@ -17,14 +18,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let paint = (what) => {
     for (let i = 0; i < what.length; i++) {
-      what[i].style.color = "#fff";
-      what[i].style.backgroundColor = "#a79e9e";
+      what[i].classList.add("won");
     }
   };
 
   let GameOver = (type) => {
     for (let i = 0; i < items.length; i++) {
-      items[i].setAttribute("disabled", "true");
+      if (!items[i].classList.contains("pressed")) {
+        items[i].classList.add("pressed");
+      }
     }
     switch (type) {
       case 0:
@@ -40,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
         break;
       case "line0":
         paint(row0);
-        mes.innerText = row[0].innerText + " won!";
+        mes.innerText = row0[0].innerText + " won!";
         break;
       case "line1":
         paint(row1);
@@ -212,4 +214,25 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+
+  reset.addEventListener("click", function () {
+    for (let i = 0; i < items.length; i++) {
+      items[i].classList.remove("pressed");
+      if (items[i].classList.contains("won")) {
+        items[i].classList.remove("won");
+      }
+      items[i].innerText = "";
+      finish = 0;
+      play = [];
+      dp.length = 0;
+      ds.length = 0;
+      row0.length = 0;
+      row1.length = 0;
+      row2.length = 0;
+      col0.length = 0;
+      col1.length = 0;
+      col2.length = 0;
+      mes.innerText = "";
+    }
+  });
 });

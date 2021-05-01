@@ -37,6 +37,7 @@ html {
   font-size: 1.5rem;
   font-weight: 600;
   padding: 5px;
+  height: 30px;
 }
 
 #game {
@@ -64,4 +65,22 @@ html {
 button {
   outline: none;
   border: none;
+}
+
+#reset {
+  padding: 5px;
+  display: block;
+  width: 120px;
+  height: 30px;
+  margin: 35px auto;
+  text-align: center;
+  border-radius: 10px;
+  font-weight: 500;
+  background-color: rgb(167, 104, 104);
+  color: #fff;
+}
+
+.won {
+  background-color: #64cc87;
+  color: #fff;
 }
