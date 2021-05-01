@@ -1,39 +1,51 @@
 document.addEventListener("DOMContentLoaded", function () {
- // let game = document.getElementById("game");
+  // let game = document.getElementById("game");
   items = document.getElementById("game").children;
   //let options = ["x", "0"];
   //let firstChoice = Math.floor(Math.random() * 2);
   let play = [];
- // let click = false;
- // let newGame = true;
+  // let click = false;
+  // let newGame = true;
   let finish = 0;
 
- // let rows = [];
- // let cols = [];
+  // let rows = [];
+  // let cols = [];
   let dp = [];
   let ds = [];
 
+  let row0 = [];
+  let row1 = [];
+  let row2 = [];
+
   let paint = (what) => {
-    for(let i = 0; i < what.length; i++) {
+    for (let i = 0; i < what.length; i++) {
       what[i].style.color = "#fff";
       what[i].style.backgroundColor = "#a79e9e";
     }
-  }
+  };
 
   let GameOver = (type) => {
     for (let i = 0; i < items.length; i++) {
       items[i].setAttribute("disabled", "true");
     }
-    switch(type) {
+    switch (type) {
       case 1:
         paint(dp);
         break;
       case 2:
         paint(ds);
         break;
+      case "line0":
+        paint(row0);
+        break;
+      case "line1":
+        paint(row1);
+        break;
+      case "line2":
+        paint(row2);
+        break;
     }
-  }
-
+  };
 
   for (let i = 0; i < items.length; i++) {
     items[i].addEventListener("click", function () {
@@ -47,6 +59,30 @@ document.addEventListener("DOMContentLoaded", function () {
           items[i].innerText = "x";
           items[i].classList.add("x");
           play.push("x");
+        }
+
+        if (
+          (items[i].id[0] == 0 && items[i].id[1] == 0) ||
+          (items[i].id[0] == 0 && items[i].id[1] == 1) ||
+          (items[i].id[0] == 0 && items[i].id[1] == 2)
+        ) {
+          row0.push(items[i]);
+        }
+
+        if (
+          (items[i].id[0] == 1 && items[i].id[1] == 0) ||
+          (items[i].id[0] == 1 && items[i].id[1] == 1) ||
+          (items[i].id[0] == 1 && items[i].id[1] == 2)
+        ) {
+          row1.push(items[i]);
+        }
+
+        if (
+          (items[i].id[0] == 2 && items[i].id[1] == 0) ||
+          (items[i].id[0] == 2 && items[i].id[1] == 1) ||
+          (items[i].id[0] == 2 && items[i].id[1] == 2)
+        ) {
+          row2.push(items[i]);
         }
 
         if (items[i].id[0] == 0 && items[i].id[1] == 2) {
@@ -64,13 +100,45 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         console.log(dp);
         if (dp.length === 3) {
-          if (dp[0].innerText === dp[1].innerText && dp[1].innerText == dp[2].innerText) {
+          if (
+            dp[0].innerText === dp[1].innerText &&
+            dp[1].innerText == dp[2].innerText
+          ) {
             GameOver(1);
           }
         }
         if (ds.length === 3) {
-          if (ds[0].innerText === ds[1].innerText && ds[1].innerText == ds[2].innerText) {
+          if (
+            ds[0].innerText === ds[1].innerText &&
+            ds[1].innerText == ds[2].innerText
+          ) {
             GameOver(2);
+          }
+        }
+
+        if (row0.length === 3) {
+          if (
+            row0[0].innerText === row0[1].innerText &&
+            row0[1].innerText == row0[2].innerText
+          ) {
+            GameOver("line0");
+          }
+        }
+
+        if (row1.length === 3) {
+          if (
+            row1[0].innerText === row1[1].innerText &&
+            row1[1].innerText == row1[2].innerText
+          ) {
+            GameOver("line1");
+          }
+        }
+        if (row2.length === 3) {
+          if (
+            row2[0].innerText === row2[1].innerText &&
+            row2[1].innerText == row2[2].innerText
+          ) {
+            GameOver("line2");
           }
         }
         finish++;
