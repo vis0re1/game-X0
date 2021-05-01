@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // let game = document.getElementById("game");
   let items = document.querySelector("#game").children;
   let mes = document.querySelector("#message");
   let reset = document.querySelector("#reset");
@@ -14,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     col0 = [],
     col1 = [],
     col2 = [];
-    play.push(options[Math.floor(Math.random() * 2)]);
+  play.push(options[Math.floor(Math.random() * 2)]);
 
   let paint = (what) => {
     for (let i = 0; i < what.length; i++) {
