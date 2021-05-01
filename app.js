@@ -3,8 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let items = document.querySelector("#game").children;
   let mes = document.querySelector("#message");
   let reset = document.querySelector("#reset");
-  //let options = ["x", "0"];
-  //let firstChoice = Math.floor(Math.random() * 2);
+  let options = ["x", "0"];
   let play = [],
     finish = 0,
     dp = [],
@@ -15,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     col0 = [],
     col1 = [],
     col2 = [];
+    play.push(options[Math.floor(Math.random() * 2)]);
 
   let paint = (what) => {
     for (let i = 0; i < what.length; i++) {
@@ -224,6 +224,7 @@ document.addEventListener("DOMContentLoaded", function () {
       items[i].innerText = "";
       finish = 0;
       play = [];
+      play.push(options[Math.floor(Math.random() * 2)]);
       dp.length = 0;
       ds.length = 0;
       row0.length = 0;
