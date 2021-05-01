@@ -32,27 +32,35 @@ document.addEventListener("DOMContentLoaded", function () {
         break;
       case 1:
         paint(dp);
+        mes.innerText = dp[0].innerText + " won!";
         break;
       case 2:
         paint(ds);
+        mes.innerText = ds[0].innerText + " won!";
         break;
       case "line0":
         paint(row0);
+        mes.innerText = row[0].innerText + " won!";
         break;
       case "line1":
         paint(row1);
+        mes.innerText = row1[0].innerText + " won!";
         break;
       case "line2":
         paint(row2);
+        mes.innerText = row2[0].innerText + " won!";
         break;
       case "col0":
         paint(col0);
+        mes.innerText = col0[0].innerText + " won!";
         break;
       case "col1":
         paint(col1);
+        mes.innerText = col1[0].innerText + " won!";
         break;
       case "col2":
         paint(col2);
+        mes.innerText = col2[0].innerText + " won!";
         break;
     }
   };
@@ -63,11 +71,9 @@ document.addEventListener("DOMContentLoaded", function () {
         items[i].classList.add("pressed");
         if (play.pop() === "x") {
           items[i].innerText = "0";
-          items[i].classList.add("0");
           play.push("0");
         } else {
           items[i].innerText = "x";
-          items[i].classList.add("x");
           play.push("x");
         }
 
