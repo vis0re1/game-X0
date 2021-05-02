@@ -242,6 +242,7 @@ document.addEventListener("DOMContentLoaded", function () {
       col1.length = 0;
       col2.length = 0;
       mes.innerText = "";
+      finishGame = false;
     }
   });
 });
