@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let options = ["x", "0"];
   let play = [],
     finish = 0,
+    finishGame = false,
     dp = [],
     ds = [],
     row0 = [],
@@ -34,34 +35,42 @@ document.addEventListener("DOMContentLoaded", function () {
       case 1:
         paint(dp);
         mes.innerText = dp[0].innerText + " won!";
+        finishGame = true;
         break;
       case 2:
         paint(ds);
         mes.innerText = ds[0].innerText + " won!";
+        finishGame = true;
         break;
       case "line0":
         paint(row0);
         mes.innerText = row0[0].innerText + " won!";
+        finishGame = true;
         break;
       case "line1":
         paint(row1);
         mes.innerText = row1[0].innerText + " won!";
+        finishGame = true;
         break;
       case "line2":
         paint(row2);
         mes.innerText = row2[0].innerText + " won!";
+        finishGame = true;
         break;
       case "col0":
         paint(col0);
         mes.innerText = col0[0].innerText + " won!";
+        finishGame = true;
         break;
       case "col1":
         paint(col1);
         mes.innerText = col1[0].innerText + " won!";
+        finishGame = true;
         break;
       case "col2":
         paint(col2);
         mes.innerText = col2[0].innerText + " won!";
+        finishGame = true;
         break;
     }
   };
@@ -208,7 +217,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         finish++;
       }
-      if (finish === 9) {
+      if (finish === 9 && !finishGame) {
         GameOver(0);
       }
     });
