@@ -8,7 +8,8 @@ html {
   background-size: cover;
   background-repeat: no-repeat;
   overflow-y: hidden;
-  font-family: 'Amatic SC', sans-serif,cursive;
+  font-family: "Amatic SC", sans-serif, cursive;
+  user-select: none;
 }
 
 * {
@@ -35,12 +36,14 @@ html {
 .playGame {
   display: none;
   margin-top: -15px;
+  animation-duration: 0.4s;
+  animation-name: slidein;
 }
 
 #container h2 {
   text-align: center;
   color: #fff;
-  font-size: 1.rem;
+  font-size: 1rem;
   font-weight: 600;
   padding: 2px;
   height: 7px;
@@ -72,6 +75,16 @@ html {
 .start {
   padding-top: 50px;
   height: 300px;
+  animation-duration: 0.4s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  0% {opacity: 0;} 
+ 25% {opacity: 0.25;}
+ 50% {opacity: 0.5;}
+  75% {opacity: 0.75;} 
+ 100% {opacity: 1;}
 }
 
 button {
@@ -94,7 +107,7 @@ button {
   background-color: rgb(222, 238, 220);
   color: #503f3f;
   transition: ease 0.2s;
-  font-family: 'Amatic SC', sans-serif,cursive;
+  font-family: "Amatic SC", sans-serif, cursive;
 }
 
 .btn:hover {
