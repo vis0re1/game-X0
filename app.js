@@ -26,6 +26,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //let player = [];
 
+  let setup = () => {
+    finish = 0;
+    play = [];
+    play.push(options[Math.floor(Math.random() * 2)]);
+    dp.length = 0;
+    ds.length = 0;
+    row0.length = 0;
+    row1.length = 0;
+    row2.length = 0;
+    col0.length = 0;
+    col1.length = 0;
+    col2.length = 0;
+    single = false;
+    multi = false;
+    mes.innerText = "";
+    finishGame = false;
+  }
+
   let getCurrentOption = () => {
     let ans;
     if (play.pop() === "x") {
@@ -116,6 +134,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+
+
   let startGame = (v) => {
     if (v == 1) {
       single = true;
@@ -142,6 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelector("#main-menu").addEventListener("click", function () {
     document.querySelector(".start").style.display = "block";
     document.querySelector(".playGame").style.display = "none";
+    setup();
     document.querySelectorAll(".child").forEach((element) => {
       element.remove();
     });
@@ -274,26 +295,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   reset.addEventListener("click", function () {
     for (let i = 0; i < items.length; i++) {
+      items[i].innerText = "";
       items[i].classList.remove("pressed");
       if (items[i].classList.contains("won")) {
         items[i].classList.remove("won");
       }
-      items[i].innerText = "";
-      finish = 0;
-      play = [];
-      play.push(options[Math.floor(Math.random() * 2)]);
-      dp.length = 0;
-      ds.length = 0;
-      row0.length = 0;
-      row1.length = 0;
-      row2.length = 0;
-      col0.length = 0;
-      col1.length = 0;
-      col2.length = 0;
-      single = false;
-      multi = false;
-      mes.innerText = "";
-      finishGame = false;
+      setup();
     }
   });
 });
