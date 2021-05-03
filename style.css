@@ -80,11 +80,50 @@ html {
 }
 
 @keyframes slidein {
-  0% {opacity: 0;} 
- 25% {opacity: 0.25;}
- 50% {opacity: 0.5;}
-  75% {opacity: 0.75;} 
- 100% {opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.player-info {
+  width: 100px;
+  height: 50px;
+  color: #fff;
+  position: relative;
+  top: 10px;
+  display: flex;
+}
+
+.player-name {
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 2px;
+  font-size: 20px;
+}
+
+#player1-info {
+  float: left;
+  display: none;
+}
+
+#player2-info {
+  float: right;
+  display: flex;
+  flex-direction: row-reverse;
+  padding-right: 10px;
+  display: none;
 }
 
 .players {
@@ -96,7 +135,6 @@ html {
   top: 50px;
   margin: auto;
   font-size: 20px;
-
 }
 
 .players p {
