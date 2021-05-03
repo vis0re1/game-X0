@@ -290,6 +290,8 @@ document.addEventListener("DOMContentLoaded", function () {
       col0.length = 0;
       col1.length = 0;
       col2.length = 0;
+      single = false;
+      multi = false;
       mes.innerText = "";
       finishGame = false;
     }
