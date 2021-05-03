@@ -16,19 +16,18 @@
   <body>
     <div id="container">
       <h1>X & 0</h1>
-      <div id="game">
-        <button class="child" id="00"></button>
-        <button class="child" id="01"></button>
-        <button class="child" id="02"></button>
-        <button class="child" id="10"></button>
-        <button class="child" id="11"></button>
-        <button class="child" id="12"></button>
-        <button class="child" id="20"></button>
-        <button class="child" id="21"></button>
-        <button class="child" id="22"></button>
+      <div class="start">
+        <button class="btn" id="single">Single player</button>
+        <button class="btn" id="multiplayer">Multiplayer</button>
       </div>
-      <h2 id="message"></h2>
-      <button id="reset">New game</button>
+      <div class="playGame">
+        <div id="game">
+        </div>
+        <h2 id="message"></h2>
+        <button class="btn" id="reset">New game</button>
+        <button class="btn" id="main-menu">Main menu</button>
+      </div>
+    
     </div>
     <script src="app.js"></script>
   </body>

@@ -27,29 +27,34 @@ html {
 #container h1 {
   color: #fff;
   text-align: center;
-  padding-top: 12px;
-  font-size: 2.5rem;
+  padding-top: 3px;
+  font-size: 2.8rem;
   font-weight: 800;
+}
+
+.playGame {
+  display: none;
+  margin-top: -15px;
 }
 
 #container h2 {
   text-align: center;
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 1.rem;
   font-weight: 600;
-  padding: 5px;
-  height: 30px;
+  padding: 2px;
+  height: 7px;
 }
 
 #game {
   width: 250px;
   height: 250px;
-  margin: 20px auto;
+  margin: 10px auto;
   background-color: rgba(138, 134, 134, 0.6);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  gap: 2px;
+  gap: 3px;
   border: 2px solid rgba(138, 134, 134, 0.6);
 }
 
@@ -64,29 +69,59 @@ html {
   font-family: sans-serif;
 }
 
+.start {
+  padding-top: 50px;
+  height: 300px;
+}
+
 button {
   outline: none;
   border: none;
 }
 
-#reset {
+.btn {
+  outline: none;
+  border: none;
   padding: 3px;
   display: block;
-  width: 120px;
-  height: 30px;
-  font-size: 18px;
-  margin: 35px auto;
+  width: 140px;
+  height: 35px;
+  font-size: 20px;
+  margin: 45px auto;
   text-align: center;
   border-radius: 5px;
-  font-weight: 900;
-  background-color: rgb(211, 219, 210);
-  color: #424242;
+  font-weight: 800;
+  background-color: rgb(222, 238, 220);
+  color: #503f3f;
   transition: ease 0.2s;
   font-family: 'Amatic SC', sans-serif,cursive;
 }
 
+.btn:hover {
+  background-color: rgb(44, 150, 211);
+  color: #f0eeee;
+}
+
+#reset {
+  width: 120px;
+  height: 30px;
+}
+
 #reset:hover {
   background-color: rgb(69, 156, 69);
+  color: #f0eeee;
+}
+
+#main-menu {
+  width: 100px;
+  height: 28px;
+  margin-top: -26px;
+  font-size: 16px;
+  border: 2px solid #fff;
+}
+
+#main-menu:hover {
+  background-color: rgb(231, 48, 118);
   color: #f0eeee;
 }
 
