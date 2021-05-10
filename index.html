@@ -30,21 +30,17 @@
       </div>
       <div class="players">
         <div class="player-select">
-          <label for="player1-options">Player 1</label>
-          <select id="player1-options">
+          <span class="label">Player 1</span>
+         <!--  <select id="player1-options">
             <option value="x">x</option>
             <option value="0">0</option>
-          </select>
+          </select> -->
+          <div class="selection">x</div>
+          <div class="selection">o</div>
         </div>
         <input type="text" id="player1" name="player1" maxlength="20" placeholder="your name"/>
         <div class="second-player">
-          <div class="player-select">
-            <label for="player2-options">Player 2</label>
-            <select id="player2-options">
-              <option value="x">x</option>
-              <option value="0">0</option>
-            </select>
-          </div>
+          <p>Player 2</p>
           <input type="text" id="player2" name="player2" maxlength="20" placeholder="your name"/>
         </div>
         <button class="btn" id="play-game">Play</button>
