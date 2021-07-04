@@ -183,6 +183,10 @@ select option {
   color: #424242;
 }
 
+.checked {
+  background-color: rgb(41, 101, 116);
+}
+
 .players p {
   height: 2px;
   font-size: 22px;
